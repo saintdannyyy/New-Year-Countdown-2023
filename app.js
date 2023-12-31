@@ -1,3 +1,7 @@
+function redirectToNewYearPage() {
+    clearInterval(x);  // Stop the countdown interval
+    window.location.href = 'https://2023-to-2024.netlify.app/';
+}
 // Set date
 var countdownDate = new Date(
 	"January 1, 2024 00:00:00"
@@ -22,14 +26,12 @@ var x = setInterval(function () {
 	document.querySelector("#h").innerText = addZero(hours);
 	document.querySelector("#m").innerText = addZero(minutes);
 	document.querySelector("#s").innerText = addZero(seconds);
+	
 
 	// If the count down is finished, write some text
-	if (distance < 0) {
-		clearInterval(x);
-		document.getElementById("countdown-box").innerHTML =
-			"<span class='cdi'>Happy New Year!!</span>";
-		document.querySelector(".title").innerText = "";
-	}
+    if (distance < 0) {
+        redirectToNewYearPage();
+    }
 }, 1000);
 function addZero(i) {
 	if (i < 10) {
